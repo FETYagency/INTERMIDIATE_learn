@@ -11,7 +11,7 @@ import "./app.css"
 
 const ROUTER = createBrowserRouter([
   {
-    path:"/",
+    path:"INTERMIDIATE_learn/",
     element:<Root/>,
     errorElement:<Error/>,
     loader:linksLoader,
@@ -21,12 +21,12 @@ const ROUTER = createBrowserRouter([
         children:[
           {index:true, element:<Index/>},
           {
-            path:"planets/:name",
+            path:"/INTERMIDIATE_learn/planets/:name",
             element:<Planet/>,
             loader:planetLoader,
           },
           {
-            path:"planets/:name/:article",
+            path:"/INTERMIDIATE_learn/planets/:name/:article",
             element:<Planet/>,
             loader:planetLoader,
           },

@@ -3,7 +3,7 @@ import { getPlanet } from "../logic";
 import { NavLink, redirect, useLoaderData, } from "react-router-dom";
 export async function loader({params}){
     if(!params.article){
-        return redirect(`/planets/${params.name}/overview`)
+        return redirect(`/INTERMIDIATE_learn/planets/${params.name}/overview`)
     }else{
         return await getPlanet(params.name, params.article)
     }
@@ -30,22 +30,22 @@ export default function Planet(){
                 <NavLink className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? `${planetObj.name} active` : ""
                 } 
-                to={`/planets/${planetObj.name}/overview`}>{!design&&<span>01</span>}{!design?"overview":"overview"}</NavLink>
+                to={`/INTERMIDIATE_learn/planets/${planetObj.name}/overview`}>{!design&&<span>01</span>}{!design?"overview":"overview"}</NavLink>
                 <NavLink className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? `${planetObj.name} active` : ""
                 }
-                to={`/planets/${planetObj.name}/structure`}>{!design&&<span>02</span>}{!design?"Internal Structure":"Structure"}</NavLink>
+                to={`/INTERMIDIATE_learn/planets/${planetObj.name}/structure`}>{!design&&<span>02</span>}{!design?"Internal Structure":"Structure"}</NavLink>
                 <NavLink className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? `${planetObj.name} active` : ""
                 }
-                to={`/planets/${planetObj.name}/geology`}>{!design&&<span>03</span>}{!design?"Surface Geology":"Geology"}</NavLink>
+                to={`/INTERMIDIATE_learn/planets/${planetObj.name}/geology`}>{!design&&<span>03</span>}{!design?"Surface Geology":"Geology"}</NavLink>
             </div>
 
             <div className="sec-image">
                 <div className={"images-container " +planetObj.name}>
-                    <img src={planetObj.images.svg}/>
+                    <img src={"/INTERMIDIATE_learn"+planetObj.images.svg}/>
                     <div className="popup">
-                        <img src={planetObj.images.png} style={{display:planetObj.images.pngIsHidden}}/>
+                        <img src={"/INTERMIDIATE_learn"+planetObj.images.png} style={{display:planetObj.images.pngIsHidden}}/>
                     </div>
                 </div>
             </div>
