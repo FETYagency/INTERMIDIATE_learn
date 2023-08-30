@@ -1,0 +1,181 @@
+.planet_article {
+  inline-size: 90%;
+  grid-area: article;
+  place-self: center;
+  text-align: center;
+}
+.planet_article > .planet-name {
+  color: #FFF;
+  font-size: 2.5rem;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.planet_article > .content {
+  margin-block: 1rem 2rem;
+  color: #FFF;
+  font-size: 0.6875rem;
+  line-height: 1.375rem;
+}
+.planet_article > span {
+  font-family: "League Spartan", sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5625rem;
+  opacity: 0.5;
+}
+.planet_article > span > a {
+  color: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5625rem;
+  text-decoration-line: underline;
+  display: inline-flex;
+  gap: 0.5rem;
+}
+.planet_article > span > a::after {
+  content: url(/assets/icon-source.svg);
+}
+
+.links {
+  grid-area: links;
+}
+.links.ofMobile {
+  border-block-end: 1px solid rgba(255, 255, 255, 0.0784313725);
+  display: flex;
+  justify-content: center;
+  gap: 2.6875rem;
+}
+.links.ofMobile > a {
+  color: inherit;
+  text-align: center;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.929px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  padding-block: 1.125rem;
+  border-block-end: solid 4px transparent;
+}
+.links.ofMobile > a.Mercury.active {
+  border-block-end: solid 4px #419EBB;
+}
+.links.ofMobile > a.Venus.active {
+  border-block-end: solid 4px #EDA249;
+}
+.links.ofMobile > a.Earth.active {
+  border-block-end: solid 4px #6D2ED5;
+}
+.links.ofMobile > a.Mars.active {
+  border-block-end: solid 4px #D14C32;
+}
+.links.ofMobile > a.Jupiter.active {
+  border-block-end: solid 4px #D83A34;
+}
+.links.ofMobile > a.Saturn.active {
+  border-block-end: solid 4px #CD5120;
+}
+.links.ofMobile > a.Uranus.active {
+  border-block-end: solid 4px #1EC1A2;
+}
+.links.ofMobile > a.Neptune.active {
+  border-block-end: solid 4px #2D68F0;
+}
+
+.sec-image {
+  grid-area: planet;
+  place-self: center;
+}
+.sec-image > .images-container {
+  position: relative;
+}
+.sec-image > .images-container.Mercury {
+  inline-size: 6.9375rem;
+  block-size: 6.9375rem;
+  margin-block: 5.9375rem;
+}
+.sec-image > .images-container.Venus {
+  inline-size: 9.625rem;
+  block-size: 9.625rem;
+  margin-block: 4.625rem;
+}
+.sec-image > .images-container.Earth {
+  inline-size: 10.8125rem;
+  block-size: 10.8125rem;
+  margin-block: 4rem;
+}
+.sec-image > .images-container.Mars {
+  inline-size: 8.0625rem;
+  block-size: 8.0625rem;
+  margin-block: 5.4375rem;
+}
+.sec-image > .images-container.Jupiter {
+  inline-size: 14rem;
+  block-size: 14rem;
+  margin-block: 2.4375rem;
+}
+.sec-image > .images-container.Saturn {
+  inline-size: 16rem;
+  block-size: 16rem;
+  margin-block: 1.5rem;
+}
+.sec-image > .images-container.Uranus {
+  inline-size: 11rem;
+  block-size: 11rem;
+  margin-block: 3.9375rem;
+}
+.sec-image > .images-container.Neptune {
+  inline-size: 10.8125rem;
+  block-size: 10.8125rem;
+  margin-block: 4rem;
+}
+.sec-image > .images-container > .popup {
+  inline-size: 4.375rem;
+  position: absolute;
+  inset-inline: 50% auto;
+  transform: translateX(-50%);
+  inset-block: auto -60px;
+}
+.sec-image > .images-container img {
+  inline-size: 100%;
+  block-size: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.stats {
+  inline-size: 90%;
+  grid-area: stats;
+  place-self: center;
+  padding-block: 1.75rem 2.9375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.stats > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.0784313725);
+}
+.stats > div > h3 {
+  color: #FFF;
+  font-size: 0.5rem;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.727px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.stats > div > .boldNumber {
+  color: #FFF;
+  font-size: 1.25rem;
+  line-height: normal;
+  letter-spacing: -0.75px;
+  text-transform: uppercase;
+  font-family: "Antonio", sans-serif;
+}/*# sourceMappingURL=mobile.css.map */

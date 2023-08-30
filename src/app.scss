@@ -1,0 +1,449 @@
+@use "sass:math";
+@function toRem($unit, $rem: 16){
+    @return math.div($unit, $rem) * 1rem
+};
+
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+@import url(reset.css);
+@import url(./Styles/header.css);
+@import url(./Styles/mobile.css);
+
+p,a{
+    font-family: 'League Spartan', sans-serif;
+}
+h1,
+h2,
+h3,
+h4{
+    font-family: 'Antonio', sans-serif;
+}
+
+body{
+    background: #070724;
+    color: #fff;
+}
+
+main{
+    @media (width>600px) {
+        min-inline-size: toRem(817);
+    }
+    min-inline-size: toRem(300);
+}
+.Content{
+    // position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: #000021;
+        opacity: 0;
+        pointer-events: none;
+        transition: all .3s ease;
+    }
+    &.loading{
+        &::after{
+            opacity: 0.5;
+            pointer-events: auto;
+        }
+    }
+    
+    display: grid;
+    place-content: start;
+    grid-template-areas: 
+    "links"
+    "planet"
+    "article"
+    "stats"
+    ;
+    @media(width>=600px){
+        inline-size: min(689px, 95%);
+        margin-inline: auto;
+        
+        grid-template-columns: 1fr toRem(281);
+        grid-template-areas: 
+        "planet planet"
+        "article links"
+        "stats stats"
+        ;
+        column-gap: toRem(69);
+        >.links{
+            display: flex;
+            flex-flow: column;
+            gap: toRem(16);
+            >a{
+                color: #FFF;
+                font-size: toRem(9);
+                font-weight: 700;
+                line-height: toRem(25);
+                letter-spacing: 1.929px;
+                text-transform: uppercase;
+                text-decoration: none;
+                
+                display: inline-flex;
+                gap: toRem(17);
+                border: 1px solid #ffffff14;
+                
+                padding-block: toRem(7) toRem(8);
+                padding-inline: toRem(20);
+                &:hover{
+                    background: #d8d8d84e;
+                }
+                &.Mercury.active{
+                    border: solid 4px #419EBB;
+                    background-color: #419EBB;
+                }
+                &.Venus.active{
+                    border: solid 4px #EDA249;
+                    background-color: #EDA249;
+
+                }
+                &.Earth.active{
+                    border: solid 4px #6D2ED5;
+                    background-color: #6D2ED5;
+                }
+                &.Mars.active{
+                    border: solid 4px #D14C32;
+                    background-color: #D14C32;
+                }
+                &.Jupiter.active{
+                    border: solid 4px #D83A34;
+                    background-color: #D83A34;
+                }
+                &.Saturn.active{
+                    border: solid 4px #CD5120;
+                    background-color: #CD5120;
+                }
+                &.Uranus.active{
+                    border: solid 4px #1EC1A2;
+                    background-color: #1EC1A2;
+                }
+                &.Neptune.active{
+                    border: solid 4px #2D68F0;
+                    background-color: #2D68F0;
+                }
+                >span{
+                    opacity: .5;
+                }
+            }
+        }
+        >.planet_article{
+            inline-size: 100%;
+            text-align: start;
+            >.planet-name{
+                color: #FFF;
+                font-size: toRem(48);
+                font-weight: 400;
+                line-height: normal;
+                text-transform: uppercase;
+            }
+            >.content{
+                margin-block: toRem(26) toRem(32);
+                font-size: toRem(11);
+                font-weight: 400;
+                line-height: toRem(22);
+            }
+        }
+        >.stats{
+            inline-size: 100%;
+            flex-direction: row;
+            gap: toRem(11);
+            padding-block: toRem(27) toRem(36);
+            >div{
+                flex: 1 1 0;
+                flex-direction: column;
+                align-items: flex-start;
+                >.boldNumber{
+                    font-size: toRem(24);
+                }
+                >*{
+                    margin-block-end: toRem(10);
+                    &:last-child{
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .sec-image{
+            grid-area: planet;
+            place-self: center;
+        
+            
+            >.images-container{
+                &.Mercury{
+                    inline-size: toRem(184);
+                    block-size: toRem(184);
+                    margin-block: toRem(95);
+                }
+                &.Venus{
+                    inline-size: toRem(253);
+                    block-size: toRem(253);
+                    margin-block: toRem(112);
+                }
+                &.Earth{
+                    inline-size: toRem(285);
+                    block-size: toRem(285);
+                    margin-block: toRem(96);
+                }
+                &.Mars{
+                    inline-size: toRem(213);
+                    block-size: toRem(213);
+                    margin-block: toRem(132);
+                }
+                &.Jupiter{
+                    inline-size: toRem(369);
+                    block-size: toRem(369);
+                    margin-block: toRem(54);
+                }
+                &.Saturn{
+                    inline-size: toRem(422);
+                    block-size: toRem(422);
+                    margin-block: toRem(27);
+                }
+                &.Uranus{
+                    inline-size: toRem(290);
+                    block-size: toRem(290);
+                    margin-block: toRem(93);
+                }
+                &.Neptune{
+                    inline-size: toRem(285);
+                    block-size: toRem(285);
+                    margin-block: toRem(96);
+                }
+                >.popup{
+                    inline-size: toRem(123);
+                    position: absolute;
+                    inset-inline: 50% auto;
+                    transform: translateX(-50%);
+                    inset-block: auto -80px;
+                }
+            }
+        }
+        
+        @media(width>1150px){
+            padding-block: toRem(96);
+            inline-size: min(1110px, 95%);
+            grid-template-columns: 1fr toRem(350);
+            grid-template-areas: 
+            "planet article"
+            "planet links"
+            "stats stats"
+            ;
+            >.planet_article{
+                >.planet-name{
+                    color: #FFF;
+                    font-size: toRem(80);
+                    font-weight: 400;
+                    line-height: normal;
+                    text-transform: uppercase;
+                }
+                .content{
+                    color: #FFF;
+                    font-size: toRem(14);
+                    font-weight: 400;
+                    line-height: toRem(25);
+                    margin-block: toRem(24);
+                }
+            }
+            .planet_article{
+                align-self: end stretch;
+            }
+            >.links{
+                place-self: end stretch;
+                padding-block-start: toRem(39);
+            }
+            >.stats{
+                padding-block: toRem(87) toRem(56);
+                >h3{
+                    font-size: toRem(11);
+                    font-weight: 700;
+                    line-height: toRem(25);
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+                >.boldNumber{
+                    font-size: toRem(40);
+                    font-weight: 400;
+                    letter-spacing: -1.5px;
+                    text-transform: uppercase;
+                }
+            }
+            >.sec-image{
+                >.images-container{
+                    &.Mercury{
+                        inline-size: toRem(290);
+                        block-size: toRem(290);
+                        margin-block: toRem(0);
+                    }
+                    &.Venus{
+                        inline-size: toRem(400);
+                        block-size: toRem(400);
+                        margin-block: toRem(0);
+                    }
+                    &.Earth{
+                        inline-size: toRem(450);
+                        block-size: toRem(450);
+                        margin-block: toRem(0);
+                    }
+                    &.Mars{
+                        inline-size: toRem(336);
+                        block-size: toRem(336);
+                        margin-block: toRem(0);
+                    }
+                    &.Jupiter{
+                        inline-size: toRem(582);
+                        block-size: toRem(582);
+                        margin-block: toRem(0);
+                    }
+                    &.Saturn{
+                        inline-size: toRem(666.09);
+                        block-size: toRem(666.09);
+                        margin-block: toRem(0);
+                    }
+                    &.Uranus{
+                        inline-size: toRem(458);
+                        block-size: toRem(458);
+                        margin-block: toRem(0);
+                    }
+                    &.Neptune{
+                        inline-size: toRem(450);
+                        block-size: toRem(450);
+                        margin-block: toRem(0);
+                    }
+                    >.popup{
+                        inline-size: toRem(163);
+                        position: absolute;
+                        inset-inline: 50% auto;
+                        transform: translateX(-50%);
+                        inset-block: auto -80px;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+.indexPage{
+    >h1{
+        color: #FFF;
+        font-size: 100px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    >p{
+        color: #FFF;
+        font-size: 34px;
+        font-weight: 400;
+        line-height: 45px; /* 178.571% */
+    }
+}
+
+.loadingAnim{
+    position: fixed;
+    z-index: 998;
+    inset-inline: 50% auto;
+    transform: translate(-50%, -50%);
+    inset-block: 50% auto;
+}
+
+.loader {
+    width: 60px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .ball {
+    list-style: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+  
+  .ball:nth-child(1) {
+    animation: bounce-1 2.1s ease-in-out infinite;
+  }
+  
+  @keyframes bounce-1 {
+    50% {
+      transform: translateY(-18px);
+      background-color: aqua;
+    }
+  }
+  
+  .ball:nth-child(2) {
+    animation: bounce-3 2.1s ease-in-out 0.3s infinite;
+  }
+  
+  @keyframes bounce-2 {
+    50% {
+      transform: translateY(-18px);
+      background-color: aqua;
+    }
+  }
+  
+  .ball:nth-child(3) {
+    animation: bounce-3 2.1s ease-in-out 0.6s infinite;
+  }
+  
+  @keyframes bounce-3 {
+    50% {
+      transform: translateY(-18px);
+      background-color: aqua;
+    }
+  }
+
+//   error anim
+.loading svg polyline {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  
+  .loading svg polyline#back {
+    fill: none;
+    stroke: #ff4d5033;
+  }
+  
+  .loading svg polyline#front {
+    fill: none;
+    stroke: #ff4d4f;
+    stroke-dasharray: 48, 144;
+    stroke-dashoffset: 192;
+    animation: dash_682 1.4s linear infinite;
+  }
+  
+  @keyframes dash_682 {
+    72.5% {
+      opacity: 0;
+    }
+  
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+.error{
+    position: absolute;
+    inset-inline: 50% auto;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    block-size: 400px;
+    >h2{
+        font-size: toRem(30);
+        text-align: center;
+        line-height: 2;
+    }
+}

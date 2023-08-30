@@ -1,0 +1,200 @@
+@use "sass:math";
+@function toRem($unit, $rem: 16){
+    @return math.div($unit, $rem) * 1rem
+};
+
+.planet_article{
+    inline-size: 90%;
+    
+    grid-area: article;
+    place-self: center;
+
+    text-align: center;
+    >.planet-name{
+        color: #FFF;
+        font-size: toRem(40);
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    
+    >.content{
+        margin-block: toRem(16) toRem(32);
+        color: #FFF;
+        font-size: toRem(11);
+        line-height: toRem(22); 
+    }
+
+    >span{
+        font-family: 'League Spartan', sans-serif;
+        font-size: toRem(12);
+        font-style: normal;
+        font-weight: 400;
+        line-height: toRem(25);
+        opacity: 0.5;
+        >a{
+            color: inherit;
+            font-size: toRem(12);
+            font-weight: 700;
+            line-height: toRem(25);
+            text-decoration-line: underline;
+
+            display: inline-flex;
+            gap: toRem(8);
+            &::after{
+                content: url(/assets/icon-source.svg);
+            }
+        }
+    }
+}
+.links{
+    grid-area: links;
+
+    &.ofMobile{
+
+        border-block-end: 1px solid #ffffff14;
+        
+        display: flex;
+        justify-content: center;
+        gap: toRem(43);
+        >a{
+            color: inherit;
+            text-align: center;
+            font-size: toRem(9);
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: 1.929px;
+            text-transform: uppercase;
+            text-decoration: none;
+            
+            display: inline-block;
+            padding-block: toRem(18);
+            border-block-end: solid 4px transparent;
+  
+            &.Mercury.active{
+                border-block-end: solid 4px #419EBB;
+            }
+            &.Venus.active{
+                border-block-end: solid 4px #EDA249;
+            }
+            &.Earth.active{
+                border-block-end: solid 4px #6D2ED5;
+            }
+            &.Mars.active{
+                border-block-end: solid 4px #D14C32;
+            }
+            &.Jupiter.active{
+                border-block-end: solid 4px #D83A34;
+            }
+            &.Saturn.active{
+                border-block-end: solid 4px #CD5120;
+            }
+            &.Uranus.active{
+                border-block-end: solid 4px #1EC1A2;
+            }
+            &.Neptune.active{
+                border-block-end: solid 4px #2D68F0;
+            }
+        }
+    }
+}
+.sec-image{
+    grid-area: planet;
+    place-self: center;
+
+    
+    >.images-container{
+        position: relative;
+        &.Mercury{
+            inline-size: toRem(111);
+            block-size: toRem(111);
+            margin-block: toRem(95);
+        }
+        &.Venus{
+            inline-size: toRem(154);
+            block-size: toRem(154);
+            margin-block: toRem(74);
+        }
+        &.Earth{
+            inline-size: toRem(173);
+            block-size: toRem(173);
+            margin-block: toRem(64);
+        }
+        &.Mars{
+            inline-size: toRem(129);
+            block-size: toRem(129);
+            margin-block: toRem(87);
+        }
+        &.Jupiter{
+            inline-size: toRem(224);
+            block-size: toRem(224);
+            margin-block: toRem(39);
+        }
+        &.Saturn{
+            inline-size: toRem(256);
+            block-size: toRem(256);
+            margin-block: toRem(24);
+        }
+        &.Uranus{
+            inline-size: toRem(176);
+            block-size: toRem(176);
+            margin-block: toRem(63);
+        }
+        &.Neptune{
+            inline-size: toRem(173);
+            block-size: toRem(173);
+            margin-block: toRem(64);
+        }
+        >.popup{
+            inline-size: toRem(70);
+            position: absolute;
+            inset-inline: 50% auto;
+            transform: translateX(-50%);
+            inset-block: auto -60px;
+        }
+        img{
+            inline-size: 100%;
+            block-size: 100%;
+            object-fit: contain;
+        }
+    }
+}
+.stats{
+    inline-size: 90%;
+    
+    grid-area: stats;
+
+    place-self: center;
+
+    padding-block: toRem(28) toRem(47);
+    
+    display: flex;
+    flex-direction: column;
+    gap: toRem(8);
+    >div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding-inline: toRem(24);
+        padding-block: toRem(16);
+
+        border: 1px solid #ffffff14;
+        >h3{
+            color: #FFF;
+            font-size: toRem(8);
+            font-weight: 700;
+            line-height: toRem(16);
+            letter-spacing: 0.727px;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+        >.boldNumber{
+            color: #FFF;
+            font-size: toRem(20);
+            line-height: normal;
+            letter-spacing: -0.75px;
+            text-transform: uppercase;
+            font-family: 'Antonio', sans-serif;
+        }
+    }
+}
